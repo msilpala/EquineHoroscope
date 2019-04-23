@@ -24,12 +24,12 @@ public class RetailStepDefinitions {
 	}
 
 	@Given("^a customer provides a valid credit card$")
-	public void a_customer_provides_a_valid_credit_card() throws Throwable {
+	public void a_customer_provides_a_valid_credit_card() {
 		customerCard = TestingCreditCards.goodCard;
 	}
 
 	@When("^they request an arbitrary horoscope$")
-	public void they_request_an_arbitrary_horoscope() throws Throwable {
+	public void they_request_an_arbitrary_horoscope() {
 		HorseSelection arbitraryHorseSelection = new HorseSelection("Any Horse Name", "any day now");
 		horoscopes.add(retailApi.purchaseHoroscope(arbitraryHorseSelection, customerCard));
 	}

@@ -1,5 +1,6 @@
 package com.gdinwiddie.creditcardprocessor;
 
+@SuppressWarnings("unused")
 public class TestingCreditCards {
 
 	public static final CreditCardInfo badCard = new CreditCardInfo("4444444444444448", "123", "09/99");

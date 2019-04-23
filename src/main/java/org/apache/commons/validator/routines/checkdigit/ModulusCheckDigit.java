@@ -33,6 +33,7 @@ import java.io.Serializable;
  * @version $Revision$
  * @since Validator 1.4
  */
+@SuppressWarnings("ALL")
 public abstract class ModulusCheckDigit implements CheckDigit, Serializable {
 
     private static final long serialVersionUID = 2948962251251528941L;
