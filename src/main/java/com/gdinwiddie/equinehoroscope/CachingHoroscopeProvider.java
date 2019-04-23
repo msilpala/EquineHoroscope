@@ -3,11 +3,11 @@ package com.gdinwiddie.equinehoroscope;
 import com.gdinwiddie.equinehoroscope.cache.HoroscopeCache;
 
 public class CachingHoroscopeProvider implements HoroscopeProvider {
-    private HoroscopeProvider horoscopeProvider;
-    private HoroscopeCache horoscopeCache;
+    private final HoroscopeProvider horoscopeProvider;
+    private final HoroscopeCache horoscopeCache;
 
-    public CachingHoroscopeProvider(HoroscopeProvider horoscopeProvider,
-            HoroscopeCache horoscopeCache) {
+    CachingHoroscopeProvider(HoroscopeProvider horoscopeProvider,
+                             HoroscopeCache horoscopeCache) {
         this.horoscopeProvider = horoscopeProvider;
         this.horoscopeCache = horoscopeCache;
     }

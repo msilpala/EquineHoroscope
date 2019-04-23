@@ -15,7 +15,7 @@ import com.idiacomputing.jdbc.JdbcWriter;
 public class DerbyHoroscopeCacheTest extends HoroscopeCacheTestTemplate {
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         setCache(DerbyHoroscopeCache.instance());
     }
 

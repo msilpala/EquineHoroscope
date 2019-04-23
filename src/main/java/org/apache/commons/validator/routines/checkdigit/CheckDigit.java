@@ -47,6 +47,7 @@ package org.apache.commons.validator.routines.checkdigit;
  * @version $Revision$
  * @since Validator 1.4
  */
+@SuppressWarnings("ALL")
 public interface CheckDigit {
 
     /**

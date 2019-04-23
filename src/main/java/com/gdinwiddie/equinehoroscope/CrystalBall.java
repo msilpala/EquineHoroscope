@@ -5,13 +5,13 @@ import com.gdinwiddie.equinehoroscope.mumbler.MumblerAdapter;
 
 public class CrystalBall {
 
-	private HoroscopeProvider horoscopeProvider;
+	private final HoroscopeProvider horoscopeProvider;
 
 	CrystalBall(HoroscopeProvider horoscopeProvider) {
 		this.horoscopeProvider = horoscopeProvider;
 	}
 
-	CrystalBall() {
+	private CrystalBall() {
 		this(new CachingHoroscopeProvider(MumblerAdapter.instance(), DerbyHoroscopeCache.instance()));
 	}
 

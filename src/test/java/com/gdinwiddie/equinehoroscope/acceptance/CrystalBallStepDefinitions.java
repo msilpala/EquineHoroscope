@@ -26,33 +26,31 @@ public class CrystalBallStepDefinitions {
 	}
 
 	@When("^we request an arbitrary horoscope$")
-	public void we_request_an_arbitrary_horoscope() throws Throwable {
+	public void we_request_an_arbitrary_horoscope() {
 		String horse = "Horse's Name";
 		String effectiveDate = "Next Wednesday";
 		horoscopes.add(crystalBall.fetchHoroscope(horse, effectiveDate));
 	}
 
 	@Then("^the horoscope should not be empty$")
-	public void the_horoscope_should_not_be_empty() throws Throwable {
+	public void the_horoscope_should_not_be_empty() {
 		assertThat(horoscopes.get(0), not(isEmptyOrNullString()));
 	}
 
 	@When("^we request a horoscope for \"([^\"]*)\" for \"([^\"]*)\"$")
-	public void we_request_a_horoscope_for_for(String horse, String effectiveDate) throws Throwable {
+	public void we_request_a_horoscope_for_for(String horse, String effectiveDate) {
 		horoscopes.add(crystalBall.fetchHoroscope(horse, effectiveDate));
 	}
 
 	@Then("^the horoscopes should be different$")
-	public void the_horoscopes_should_be_different() throws Throwable {
-		Set<String> horoscopeSet = new HashSet<String>();
-		horoscopeSet.addAll(horoscopes);
+	public void the_horoscopes_should_be_different() {
+		Set<String> horoscopeSet = new HashSet<>(horoscopes);
 		assertThat(horoscopeSet.size(), equalTo(horoscopes.size()));
 	}
 
 	@Then("^the horoscopes should be the same$")
-	public void the_horoscopes_should_be_the_same() throws Throwable {
-		Set<String> horoscopeSet = new HashSet<String>();
-		horoscopeSet.addAll(horoscopes);
+	public void the_horoscopes_should_be_the_same() {
+		Set<String> horoscopeSet = new HashSet<>(horoscopes);
 		assertThat(horoscopeSet.size(), equalTo(1));
 	}
 

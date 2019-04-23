@@ -10,8 +10,7 @@ public class FakeMerchantBank implements MerchantBank {
 		if ("4111111111111111".equals(creditCard.getCardNumber())) {
 			return new PaymentResult(true, "");
 		}
-		PaymentResult paymentResult = new PaymentResult(false, "Declined for lack of merchant account");
-		return paymentResult;
+		return new PaymentResult(false, "Declined for lack of merchant account");
 	}
 
 }

@@ -4,9 +4,9 @@ import org.apache.commons.validator.routines.CreditCardValidator;
 
 public class CreditCardInfo {
 
-	private String cardNumber;
-	private String cvv2;
-	private String expirationDate;
+	private final String cardNumber;
+	private final String cvv2;
+	private final String expirationDate;
 
 	public CreditCardInfo(String cardNumber, String CVV2, String expirationDate) {
 		this.cardNumber = cardNumber;
@@ -14,7 +14,7 @@ public class CreditCardInfo {
 		this.expirationDate = expirationDate;
 	}
 
-	public boolean validate() {
+	boolean validate() {
 		return new CreditCardValidator().isValid(cardNumber);
 	}
 

@@ -8,12 +8,12 @@ import com.idiacomputing.jdbc.JdbcWriter;
 
 public class HoroscopeWriter extends JdbcWriter {
 
-    private ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
     private String horsename;
     private String effectiveDate;
     private String horoscope;
 
-    public HoroscopeWriter(ConnectionFactory connectionFactory) {
+    HoroscopeWriter(ConnectionFactory connectionFactory) {
         this.connectionFactory = connectionFactory;
     }
 
@@ -35,8 +35,8 @@ public class HoroscopeWriter extends JdbcWriter {
         preparedStatement.setString(3, horoscope);
     }
 
-    public void writeHoroscope(String horsename, String effectiveDate,
-            String horoscope) throws SQLException {
+    void writeHoroscope(String horsename, String effectiveDate,
+                        String horoscope) throws SQLException {
         this.horsename = horsename;
         this.effectiveDate = effectiveDate;
         this.horoscope = horoscope;

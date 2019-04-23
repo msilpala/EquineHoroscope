@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryHoroscopeCache implements HoroscopeCache {
-	private Map<String, String> horoscopes = new HashMap<String, String>();
+	private final Map<String, String> horoscopes = new HashMap<String, String>();
 
 	/*
 	 * (non-Javadoc)

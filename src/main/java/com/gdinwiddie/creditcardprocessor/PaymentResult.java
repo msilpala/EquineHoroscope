@@ -2,8 +2,8 @@ package com.gdinwiddie.creditcardprocessor;
 
 public class PaymentResult {
 
-	private boolean successful = false;
-	private String reason = "";
+	private final boolean successful;
+	private final String reason;
 
 	public PaymentResult(boolean success, String reason) {
 		this.successful = success;

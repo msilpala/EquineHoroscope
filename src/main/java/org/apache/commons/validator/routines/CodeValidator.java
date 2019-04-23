@@ -67,6 +67,7 @@ import org.apache.commons.validator.routines.checkdigit.CheckDigit;
  * @version $Revision$
  * @since Validator 1.4
  */
+@SuppressWarnings("ALL")
 public final class CodeValidator implements Serializable {
 
     private static final long serialVersionUID = 446960910870938233L;
@@ -112,8 +113,8 @@ public final class CodeValidator implements Serializable {
      * @param maxLength The maximum length of the code
      * @param checkdigit The check digit validation routine
      */
-    public CodeValidator(String regex, int minLength, int maxLength,
-            CheckDigit checkdigit) {
+    private CodeValidator(String regex, int minLength, int maxLength,
+                          CheckDigit checkdigit) {
         if (regex != null && regex.length() > 0) {
             this.regexValidator = new RegexValidator(regex);
         } else {
@@ -131,21 +132,9 @@ public final class CodeValidator implements Serializable {
      * @param regexValidator The format regular expression validator
      * @param checkdigit The check digit validation routine.
      */
-    public CodeValidator(RegexValidator regexValidator, CheckDigit checkdigit) {
+    @SuppressWarnings("SameParameterValue")
+    CodeValidator(RegexValidator regexValidator, CheckDigit checkdigit) {
         this(regexValidator, -1, -1, checkdigit);
-    }
-
-    /**
-     * Construct a code validator with a specified regular expression,
-     * validator, length and {@link CheckDigit} validation.
-     *
-     * @param regexValidator The format regular expression validator
-     * @param length The length of the code
-     *  (sets the mimimum/maximum to the same value)
-     * @param checkdigit The check digit validation routine
-     */
-    public CodeValidator(RegexValidator regexValidator, int length, CheckDigit checkdigit) {
-        this(regexValidator, length, length, checkdigit);
     }
 
     /**

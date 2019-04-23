@@ -6,7 +6,7 @@ public class PaymentProcessor {
 
 	private static final int HOROSCOPE_PRICE_IN_DOLLARS = 2;
 	protected static PaymentProcessor theProcessor;
-	private MerchantBank merchantBankAdapter;
+	private final MerchantBank merchantBankAdapter;
 
 	public PaymentProcessor(MerchantBank merchantBank) {
 		this.merchantBankAdapter = merchantBank;
@@ -23,8 +23,7 @@ public class PaymentProcessor {
 		if (!creditCard.validate()) {
 			return new PaymentResult(false, "Invalid card information");
 		}
-		PaymentResult paymentResult = merchantBankAdapter.processPayment(HOROSCOPE_PRICE_IN_DOLLARS, creditCard);
-		return paymentResult ;
+		return merchantBankAdapter.processPayment(HOROSCOPE_PRICE_IN_DOLLARS, creditCard);
 	}
 
 }

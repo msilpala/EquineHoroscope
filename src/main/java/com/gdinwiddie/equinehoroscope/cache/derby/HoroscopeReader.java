@@ -9,16 +9,16 @@ import com.idiacomputing.jdbc.JdbcReader;
 
 public class HoroscopeReader extends JdbcReader {
 
-    private ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
     private String horoscope = null;
     private String horsename;
     private String effectiveDate;
 
-    public HoroscopeReader(ConnectionFactory connectionFactory) {
+    HoroscopeReader(ConnectionFactory connectionFactory) {
         this.connectionFactory = connectionFactory;
     }
 
-    public String readHoroscope(String horsename, String effectiveDate)
+    String readHoroscope(String horsename, String effectiveDate)
             throws SQLException {
         this.horsename = horsename;
         this.effectiveDate = effectiveDate;

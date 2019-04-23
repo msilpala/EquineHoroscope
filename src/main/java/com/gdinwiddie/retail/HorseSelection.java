@@ -2,8 +2,8 @@ package com.gdinwiddie.retail;
 
 public class HorseSelection {
 
-	private String horseName;
-	private String effectiveDate;
+	private final String horseName;
+	private final String effectiveDate;
 
 	public HorseSelection(String horseName, String effectiveDate) {
 		this.horseName = horseName;

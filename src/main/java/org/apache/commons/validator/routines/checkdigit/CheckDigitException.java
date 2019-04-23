@@ -22,15 +22,10 @@ package org.apache.commons.validator.routines.checkdigit;
  * @version $Revision$
  * @since Validator 1.4
  */
+@SuppressWarnings("ALL")
 public class CheckDigitException extends Exception {
 
     private static final long serialVersionUID = -3519894732624685477L;
-
-    /**
-     * Construct an Exception with no message.
-     */
-    public CheckDigitException() {
-    }
 
     /**
      * Construct an Exception with a message.

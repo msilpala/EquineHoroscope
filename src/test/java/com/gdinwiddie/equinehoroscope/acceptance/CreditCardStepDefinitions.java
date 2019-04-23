@@ -25,34 +25,34 @@ public class CreditCardStepDefinitions {
 	}
 
 	@When("^a bad card is presented to the Payment Processor$")
-	public void a_bad_card_is_presented_to_the_Payment_Processor() throws Throwable {
+	public void a_bad_card_is_presented_to_the_Payment_Processor() {
 		result = paymentProcessor.acceptPayment(TestingCreditCards.badCard);
 	}
 
 	@When("^an invalid card number is presented to the Payment Processor$")
-	public void an_invalid_card_number_is_presented_to_the_Payment_Processor() throws Throwable {
+	public void an_invalid_card_number_is_presented_to_the_Payment_Processor() {
 		result = paymentProcessor.acceptPayment(TestingCreditCards.invalidCard);
 	}
 
 	@When("^a good card is presented to the Payment Processor$")
-	public void a_good_card_is_presented_to_the_Payment_Processor() throws Throwable {
+	public void a_good_card_is_presented_to_the_Payment_Processor() {
 		result = paymentProcessor.acceptPayment(TestingCreditCards.goodCard);
 	}
 
 	@Then("^the Payment Processor declines the transaction$")
-	public void the_Payment_Processor_declines_the_transaction() throws Throwable {
+	public void the_Payment_Processor_declines_the_transaction() {
 		assertThat(result.isSuccessful(), is(false));
 		assertThat(result.getReason().toLowerCase(), containsString("declined"));
 	}
 
 	@Then("^the Payment Processor rejects the transaction$")
-	public void the_Payment_Processor_rejects_the_transaction() throws Throwable {
+	public void the_Payment_Processor_rejects_the_transaction() {
 		assertThat(result.isSuccessful(), is(false));
 		assertThat(result.getReason().toLowerCase(), containsString("invalid"));
 	}
 
 	@Then("^the Payment Processor accepts the transaction$")
-	public void the_Payment_Processor_accepts_the_transaction() throws Throwable {
+	public void the_Payment_Processor_accepts_the_transaction() {
 		assertThat(result.isSuccessful(), is(true));
 		assertThat(result.getReason(), isEmptyString());
 	}

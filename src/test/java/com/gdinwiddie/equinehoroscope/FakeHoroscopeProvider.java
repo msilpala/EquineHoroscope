@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FakeHoroscopeProvider implements HoroscopeProvider {
-	List<String> horoscopeList = new ArrayList<String>();
+	private final List<String> horoscopeList = new ArrayList<>();
 
-	public void addHoroscope(String horoscope) {
+	void addHoroscope(String horoscope) {
 		horoscopeList.add(horoscope);
 	}
 

@@ -133,11 +133,9 @@ public abstract class ModulusCheckDigit implements CheckDigit, Serializable {
      * @param leftPos The position of the character in the code, counting from left to right
      * @param rightPos The positionof the character in the code, counting from right to left
      * @return The weighted value of the character
-     * @throws CheckDigitException if an error occurs calculating
-     * the weighted value
      */
     protected abstract int weightedValue(int charValue, int leftPos, int rightPos)
-            throws CheckDigitException;
+    ;
 
 
     /**

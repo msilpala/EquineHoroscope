@@ -16,14 +16,16 @@ import com.google.gson.Gson;
 public class JsonMerchantBankAdapter implements MerchantBank {
 	private String bankURL = "http://localhost:12000";
 
-	public void setBankURL(String bankURL) {
+	@SuppressWarnings("SameParameterValue")
+	void setBankURL(String bankURL) {
 		this.bankURL = bankURL;
 	}
 
 	static class PaymentRequest {
-		public int dollars;
-		public CreditCardInfo creditCard;
+		final int dollars;
+		final CreditCardInfo creditCard;
 
+		@SuppressWarnings("SameParameterValue")
 		PaymentRequest(int dollars, CreditCardInfo creditCard) {
 			this.dollars = dollars;
 			this.creditCard = creditCard;

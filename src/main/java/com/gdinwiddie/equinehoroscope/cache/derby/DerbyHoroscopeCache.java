@@ -6,9 +6,9 @@ import com.gdinwiddie.equinehoroscope.cache.HoroscopeCache;
 
 public class DerbyHoroscopeCache implements HoroscopeCache {
 
-    private ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
 
-    public DerbyHoroscopeCache(ConnectionFactory connectionFactory) {
+    private DerbyHoroscopeCache(ConnectionFactory connectionFactory) {
         this.connectionFactory = connectionFactory;
     }
 

@@ -70,44 +70,45 @@ public class CreditCardValidator implements Serializable {
      * </code>
      * </pre>
      */
+    @SuppressWarnings("unused")
     public static final long NONE = 0;
 
     /**
      * Option specifying that American Express cards are allowed.
      */
-    public static final long AMEX = 1 << 0;
+    private static final long AMEX = 1;
 
     /**
      * Option specifying that Visa cards are allowed.
      */
-    public static final long VISA = 1 << 1;
+    private static final long VISA = 1 << 1;
 
     /**
      * Option specifying that Mastercard cards are allowed.
      */
-    public static final long MASTERCARD = 1 << 2;
+    private static final long MASTERCARD = 1 << 2;
 
     /**
      * Option specifying that Discover cards are allowed.
      */
-    public static final long DISCOVER = 1 << 3;
+    private static final long DISCOVER = 1 << 3;
 
     /**
      * Option specifying that Diners cards are allowed.
      */
-    public static final long DINERS = 1 << 4;
+    private static final long DINERS = 1 << 4;
 
     /**
      * Option specifying that VPay (Visa) cards are allowed.
      * @since 1.5.0
      */
-    public static final long VPAY = 1 << 5;
+    private static final long VPAY = 1 << 5;
 
 
     /**
      * The CreditCardTypes that are allowed to pass validation.
      */
-    private final List<CodeValidator> cardTypes = new ArrayList<CodeValidator>();
+    private final List<CodeValidator> cardTypes = new ArrayList<>();
 
     /**
      * Luhn checkdigit validator for the card numbers.
@@ -115,27 +116,27 @@ public class CreditCardValidator implements Serializable {
     private static final CheckDigit LUHN_VALIDATOR = LuhnCheckDigit.LUHN_CHECK_DIGIT;
 
     /** American Express (Amex) Card Validator */
-    public static final CodeValidator AMEX_VALIDATOR = new CodeValidator("^(3[47]\\d{13})$", LUHN_VALIDATOR);
+    private static final CodeValidator AMEX_VALIDATOR = new CodeValidator("^(3[47]\\d{13})$", LUHN_VALIDATOR);
 
     /** Diners Card Validator */
-    public static final CodeValidator DINERS_VALIDATOR = new CodeValidator("^(30[0-5]\\d{11}|3095\\d{10}|36\\d{12}|3[8-9]\\d{12})$", LUHN_VALIDATOR);
+    private static final CodeValidator DINERS_VALIDATOR = new CodeValidator("^(30[0-5]\\d{11}|3095\\d{10}|36\\d{12}|3[8-9]\\d{12})$", LUHN_VALIDATOR);
 
     /** Discover Card regular expressions */
     private static final RegexValidator DISCOVER_REGEX = new RegexValidator(new String[] {"^(6011\\d{12})$", "^(64[4-9]\\d{13})$", "^(65\\d{14})$"});
 
     /** Discover Card Validator */
-    public static final CodeValidator DISCOVER_VALIDATOR = new CodeValidator(DISCOVER_REGEX, LUHN_VALIDATOR);
+    private static final CodeValidator DISCOVER_VALIDATOR = new CodeValidator(DISCOVER_REGEX, LUHN_VALIDATOR);
 
     /** Mastercard Card Validator */
-    public static final CodeValidator MASTERCARD_VALIDATOR = new CodeValidator("^(5[1-5]\\d{14})$", LUHN_VALIDATOR);
+    private static final CodeValidator MASTERCARD_VALIDATOR = new CodeValidator("^(5[1-5]\\d{14})$", LUHN_VALIDATOR);
 
     /** Visa Card Validator */
-    public static final CodeValidator VISA_VALIDATOR = new CodeValidator("^(4)(\\d{12}|\\d{15})$", LUHN_VALIDATOR);
+    private static final CodeValidator VISA_VALIDATOR = new CodeValidator("^(4)(\\d{12}|\\d{15})$", LUHN_VALIDATOR);
 
     /** VPay (Visa) Card Validator 
      * @since 1.5.0
      */
-    public static final CodeValidator VPAY_VALIDATOR = new CodeValidator("^(4)(\\d{12,18})$", LUHN_VALIDATOR);
+    private static final CodeValidator VPAY_VALIDATOR = new CodeValidator("^(4)(\\d{12,18})$", LUHN_VALIDATOR);
 
     /**
      * Create a new CreditCardValidator with default options.
@@ -150,7 +151,8 @@ public class CreditCardValidator implements Serializable {
      * CreditCardValidator.VISA + CreditCardValidator.AMEX to specify that
      * those are the only valid card types.
      */
-    public CreditCardValidator(long options) {
+    @SuppressWarnings("SameParameterValue")
+    private CreditCardValidator(long options) {
         super();
 
         if (isOn(options, VISA)) {
@@ -182,6 +184,7 @@ public class CreditCardValidator implements Serializable {
      * Create a new CreditCardValidator with the specified {@link CodeValidator}s.
      * @param creditCardValidators Set of valid code validators
      */
+    @SuppressWarnings("unused")
     public CreditCardValidator(CodeValidator[] creditCardValidators) {
         if (creditCardValidators == null) {
             throw new IllegalArgumentException("Card validators are missing");
@@ -212,11 +215,12 @@ public class CreditCardValidator implements Serializable {
      * @return The card number if valid or <code>null</code>
      * if invalid.
      */
+    @SuppressWarnings("unused")
     public Object validate(String card) {
         if (card == null || card.length() == 0) {
             return null;
         }
-        Object result = null;
+        Object result;
         for (CodeValidator cardType : cardTypes) {
             result = cardType.validate(card);
             if (result != null) {

@@ -9,16 +9,15 @@ import com.idiacomputing.jdbc.JdbcConnectionFactory;
 
 public class ConnectionFactory implements JdbcConnectionFactory {
     private static final String DB_LOCATION = "EquineHoroscopeDB";
-    public String framework = "embedded";
-    public String jdbcDriver = "org.apache.derby.jdbc.EmbeddedDriver";
-    public String protocol = "jdbc:derby:";
 
     public Connection getConnection() throws SQLException {
         System.setProperty("derby.system.home", DB_LOCATION);
+        String jdbcDriver = "org.apache.derby.jdbc.EmbeddedDriver";
         loadDriver(jdbcDriver);
 
         Properties props = new Properties();
         String dbName = DB_LOCATION + "/db";
+        String protocol = "jdbc:derby:";
         return DriverManager.getConnection(protocol + dbName + ";create=true",
                 props);
     }

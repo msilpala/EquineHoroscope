@@ -10,7 +10,7 @@ import com.gdinwiddie.retail.HorseSelection;
 
 public class PurchasePage {
 
-	private WebDriver driver;
+	private final WebDriver driver;
 
 	public PurchasePage(WebDriver driver) {
 		this.driver = driver;

@@ -20,10 +20,10 @@ public class EquineHoroscopeRetailWebAdapter implements EquineHoroscopeRetailAda
 		return page.getHoroscope();
 	}
 
-	public WebDriver getDriver() {
+	private WebDriver getDriver() {
 		String browserName = System.getProperty("EquineHoroscope.browserDriver");
 
-		WebDriver driver = null;
+		WebDriver driver;
 		if ("firefox".equalsIgnoreCase(browserName)) {
 			driver = new FirefoxDriver();
 		} else {

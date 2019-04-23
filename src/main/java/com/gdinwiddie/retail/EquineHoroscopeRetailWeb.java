@@ -27,7 +27,7 @@ public class EquineHoroscopeRetailWeb {
 		api = new EquineHoroscopeRetailApi();
 	}
 
-	public void startServer() {
+	private void startServer() {
 		port(20002);
 		TemplateLoader loader = new ClassPathTemplateLoader();
 		loader.setPrefix("/com/gdinwiddie/retail/web/templates");
@@ -52,7 +52,7 @@ public class EquineHoroscopeRetailWeb {
 		
 		String horoscope = api.purchaseHoroscope(horseSelection, customerCard);
 
-		Map<String, String> responseMap = new HashMap<String, String>();
+		Map<String, String> responseMap = new HashMap<>();
 		for (String key: parmsMap.keySet()) {
 			responseMap.put(key, parmsMap.get(key)[0]);
 		}
